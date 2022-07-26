@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import WordDisplay from './WordDisplay';
 import './WordsInput.css'
 
 const WordsInput = (props) => {
 
     const[currentInputtedWord, setCurrentInputtedWord] = useState("");
-    //const[wordsList, setWordsList] = useState("");
+    
+    const removeWord = (word) => {
+        props.onRemoveWord(word);
+    }
 
     const handleChange = (event) => {
         setCurrentInputtedWord(event.target.value)
@@ -23,11 +27,13 @@ const WordsInput = (props) => {
 
     return (
         <div className='wordsInput'>            
-           <input type="text" value={currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
-           <input type="submit" value="Submit" onClick={handleSubmit}/>
-           
-            <p>{props.wordsList}</p>
-      </div>
+            <input type="text" value={currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
+            <input type="submit" value="Submit" onClick={handleSubmit}/>
+
+            {Array.from(props.wordsList).map(word => (
+                <WordDisplay value={word} removeWord={removeWord}/>
+            ))}
+        </div>
     );
 }
 

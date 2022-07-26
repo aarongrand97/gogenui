@@ -1,0 +1,11 @@
+.wordDisplay text {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: middle;
+    margin-right: 10px;
+}
+
+.wordDisplay button {
+    display: inline-block;
+    vertical-align: middle;
+}

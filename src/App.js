@@ -13,12 +13,18 @@ function App() {
     ["", "", "", "", ""]
   ]
 
-  const [wordsList, setWordsList] = useState("");
+  const [wordsList, setWordsList] = useState(new Set());
   const [grid, setGrid] = useState(initialGrid);
   const [showSolution, setShowSolution] = useState(false);
 
   const addToWordsList = (word) => {
-    setWordsList(wordsList + "\n" + word);
+    setWordsList(new Set(wordsList).add(word));
+  }
+
+  const removeFromWordsList = (word) => {
+    wordsList.delete(word);
+    let newWordsList = new Set(wordsList);
+    setWordsList(newWordsList)
   }
 
   const updateGrid = (value, index) => {
@@ -41,9 +47,8 @@ function App() {
     console.log(wordsList.length);
     const startingLetters = [grid[0][0], grid[0][2],grid[0][4], grid[2][0], grid[2][2],grid[2][4], grid[4][0], grid[4][2],grid[4][4]];
     console.log(startingLetters);
-    const words = wordsList.split("\n");
-    console.log(words);
-    const solver = new Solver(words, startingLetters);
+    console.log(wordsList);
+    const solver = new Solver(wordsList, startingLetters);
     solver.solve();
     setGrid(solver.foundSolution);    
   }
@@ -56,7 +61,7 @@ function App() {
   return (
     <div className="App">  
       <Grid grid = {grid} updateGrid = {(index, value) => updateGrid(index, value)} showSolution = {showSolution}/>
-      <WordsInput wordsList = {wordsList} onAddWord = {(word) => addToWordsList(word)}/>
+      <WordsInput wordsList = {wordsList} onAddWord = {(word) => addToWordsList(word)} onRemoveWord = {(word) => removeFromWordsList(word)}/>
       <div>
       <button onClick={solve}>Solve</button>
       <button onClick={() => setShowSolution(!showSolution)}>Show Solution</button>
