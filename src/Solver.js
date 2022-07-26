@@ -1,6 +1,6 @@
-const Node = require( './Node');
+/*const Node = require( './Node');
 
-class Solver {
+export default class Solver {
     words;
     availableLetters = new Set(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y']);
     requiredGraph = new Map();
@@ -164,7 +164,4 @@ class Solver {
             }
         }
     }
-}
-
-
-export {Solver}
+}*/
