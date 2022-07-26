@@ -1,4 +1,4 @@
-const Node = require( './Node');
+import Node from './Node';
 
 export default class Solver {
     words;

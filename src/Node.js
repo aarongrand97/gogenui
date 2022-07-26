@@ -1,4 +1,4 @@
-module.exports = class Node {
+export default class Node {
     value;
     row;
     col;
