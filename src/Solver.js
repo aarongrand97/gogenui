@@ -1,4 +1,4 @@
-/*const Node = require( './Node');
+const Node = require( './Node');
 
 export default class Solver {
     words;
@@ -164,4 +164,4 @@ export default class Solver {
             }
         }
     }
-}*/
+}

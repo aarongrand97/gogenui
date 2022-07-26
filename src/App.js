@@ -2,7 +2,7 @@ import './App.css';
 import Grid from './Grid';
 import WordsInput from './WordsInput';
 import { useState } from 'react';
-//import Solver from './Solver';
+import Solver from './Solver';
 
 function App() {
   var initialGrid = [
@@ -48,9 +48,9 @@ function App() {
     const startingLetters = [grid[0][0], grid[0][2],grid[0][4], grid[2][0], grid[2][2],grid[2][4], grid[4][0], grid[4][2],grid[4][4]];
     console.log(startingLetters);
     console.log(wordsList);
-    /*const solver = new Solver(wordsList, startingLetters);
+    const solver = new Solver(wordsList, startingLetters);
     solver.solve();
-    setGrid(solver.foundSolution);*/ 
+    setGrid(solver.foundSolution);
   }
 
   const refresh = () => {
