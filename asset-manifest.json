@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gogenui/static/css/main.dbb9461a.css",
-    "main.js": "/gogenui/static/js/main.a15e9a43.js",
+    "main.js": "/gogenui/static/js/main.3e16dea1.js",
     "static/js/787.ff707964.chunk.js": "/gogenui/static/js/787.ff707964.chunk.js",
     "index.html": "/gogenui/index.html",
     "main.dbb9461a.css.map": "/gogenui/static/css/main.dbb9461a.css.map",
-    "main.a15e9a43.js.map": "/gogenui/static/js/main.a15e9a43.js.map",
+    "main.3e16dea1.js.map": "/gogenui/static/js/main.3e16dea1.js.map",
     "787.ff707964.chunk.js.map": "/gogenui/static/js/787.ff707964.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dbb9461a.css",
-    "static/js/main.a15e9a43.js"
+    "static/js/main.3e16dea1.js"
   ]
 }
