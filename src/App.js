@@ -2,7 +2,7 @@ import './App.css';
 import Grid from './Grid';
 import WordsInput from './WordsInput';
 import { useState } from 'react';
-import Solver from './Solver';
+import { Solver } from './Solver';
 
 function App() {
   var initialGrid = [
