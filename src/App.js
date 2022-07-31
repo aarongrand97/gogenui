@@ -3,6 +3,8 @@ import Grid from './Grid';
 import WordsInput from './WordsInput';
 import { useState } from 'react';
 import Solver from './Solver';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 function App() {
   var initialGrid = [
@@ -46,8 +48,16 @@ function App() {
     console.log(wordsList);
     console.log(wordsList.length);
     const startingLetters = [grid[0][0], grid[0][2],grid[0][4], grid[2][0], grid[2][2],grid[2][4], grid[4][0], grid[4][2],grid[4][4]];
+    if(startingLetters.includes("")){
+      toast.error('Enter the starting letters!');
+      return;
+    }
     console.log(startingLetters);
     console.log(wordsList);
+    if(wordsList.size === 0){
+      toast.error('Enter the required words!');
+      return;
+    }
     const solver = new Solver(wordsList, startingLetters);
     solver.solve();
     setGrid(solver.foundSolution);
@@ -59,7 +69,9 @@ function App() {
   }
 
   return (
-    <div className="App">  
+    <>
+    <ToastContainer />
+    <div className="App">
       <Grid grid = {grid} updateGrid = {(index, value) => updateGrid(index, value)} showSolution = {showSolution}/>
       <WordsInput wordsList = {wordsList} onAddWord = {(word) => addToWordsList(word)} onRemoveWord = {(word) => removeFromWordsList(word)}/>
       <div>
@@ -68,6 +80,7 @@ function App() {
       <button onClick={refresh}>Refresh</button>
       </div>
     </div>
+    </>
   );
 }
 
