@@ -1,6 +1,6 @@
 import "./WordDisplay.css"
 
-
+import { Button } from '@mui/material';
 
 const WordDisplay = (props) => {
 
@@ -10,7 +10,7 @@ const WordDisplay = (props) => {
 
     return (<div className="wordDisplay">
     <text>{props.value}</text>
-    <button onClick={() => removeClicked(props.value)}>clear</button>
+    <Button onClick={() => removeClicked(props.value)}>clear</Button>
     </div>)
 }
 

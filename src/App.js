@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Solver from './Solver';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
+import { Button } from '@mui/material';
 
 function App() {
   var initialGrid = [
@@ -69,17 +70,17 @@ function App() {
   }
 
   return (
-    <>
-    <ToastContainer />
+    <>    
     <div className="App">
       <Grid grid = {grid} updateGrid = {(index, value) => updateGrid(index, value)} showSolution = {showSolution}/>
       <WordsInput wordsList = {wordsList} onAddWord = {(word) => addToWordsList(word)} onRemoveWord = {(word) => removeFromWordsList(word)}/>
       <div>
-      <button onClick={solve}>Solve</button>
-      <button onClick={() => setShowSolution(!showSolution)}>Show Solution</button>
-      <button onClick={refresh}>Refresh</button>
+      <Button variant="outlined" onClick={solve}>Solve</Button>
+      <Button variant="outlined" onClick={() => setShowSolution(!showSolution)}>Show Solution</Button>
+      <Button variant="outlined" onClick={refresh}>Refresh</Button>
       </div>
     </div>
+    <ToastContainer />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import { useState } from 'react';
 import WordDisplay from './WordDisplay';
 import './WordsInput.css'
@@ -26,9 +27,9 @@ const WordsInput = (props) => {
     }
 
     return (
-        <div className='wordsInput'>            
-            <input type="text" value={currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
-            <input type="submit" value="Submit" onClick={handleSubmit}/>
+        //<input type="text" value={currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
+        <div className='wordsInput'>
+            <TextField size="small" id="wordInput" label="Enter word" variant="outlined" value= {currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
 
             {Array.from(props.wordsList).map(word => (
                 <WordDisplay value={word} removeWord={removeWord}/>
