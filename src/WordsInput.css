@@ -10,10 +10,3 @@
     vertical-align: top;
     font-size: 20px;
 }
-
-.wordsInput p {
-    border-style: solid;
-    border-color: black;
-    height: 300px;
-    white-space: pre-line;
-}

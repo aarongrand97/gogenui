@@ -2,6 +2,7 @@ import { TextField } from '@mui/material';
 import { useState } from 'react';
 import WordDisplay from './WordDisplay';
 import './WordsInput.css'
+import { List } from '@mui/material';
 
 const WordsInput = (props) => {
 
@@ -31,11 +32,18 @@ const WordsInput = (props) => {
         <div className='wordsInput'>
             <TextField size="small" id="wordInput" label="Enter word" variant="outlined" value= {currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
 
-            {Array.from(props.wordsList).map(word => (
+            <List sx={{ width: '100%', maxWidth: 360, maxHeight: 300, overflow: 'auto', bgcolor: 'background.paper' }}>
+            {Array.from(props.wordsList).map((word) => (
                 <WordDisplay value={word} removeWord={removeWord}/>
             ))}
+            </List>
+           
         </div>
     );
 }
 
 export default WordsInput;
+
+/*  {Array.from(props.wordsList).map(word => (
+                <WordDisplay value={word} removeWord={removeWord}/>
+            ))} */

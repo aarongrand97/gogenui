@@ -72,12 +72,13 @@ function App() {
   return (
     <>    
     <div className="App">
+      <h1>GOGEN SOLVER</h1>
       <Grid grid = {grid} updateGrid = {(index, value) => updateGrid(index, value)} showSolution = {showSolution}/>
       <WordsInput wordsList = {wordsList} onAddWord = {(word) => addToWordsList(word)} onRemoveWord = {(word) => removeFromWordsList(word)}/>
       <div>
-      <Button variant="outlined" onClick={solve}>Solve</Button>
-      <Button variant="outlined" onClick={() => setShowSolution(!showSolution)}>Show Solution</Button>
-      <Button variant="outlined" onClick={refresh}>Refresh</Button>
+      <Button sx={{margin: 1}} variant="outlined" onClick={solve}>Solve</Button>
+      <Button sx={{margin: 1}} variant="outlined" onClick={() => setShowSolution(!showSolution)}>Show Solution</Button>
+      <Button sx={{margin: 1}} variant="outlined" onClick={refresh}>Refresh</Button>
       </div>
     </div>
     <ToastContainer />
