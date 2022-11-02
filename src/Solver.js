@@ -119,10 +119,9 @@ export default class Solver {
     possible(row, col, letter) {
         if(this.solutionContainsLetter(letter)) return false;
 
-        const solutionCopy = this.copySolutionArray();
-        solutionCopy[row][col].value = letter;
+        this.solution[row][col].value = letter;
 
-        return this.validSolution(solutionCopy); 
+        return this.validSolution(this.solution); 
     }
 
     solutionContainsLetter(possibleLetter) {
@@ -136,10 +135,10 @@ export default class Solver {
         return false;
     }
 
-    validSolution(solutionCopy) {
+    validSolution(solution) {
         for(let row = 0; row < 5; row++) {
             for(let col = 0; col < 5; col++) {
-                let currentNode = solutionCopy[row][col];
+                let currentNode = solution[row][col];
                 if(currentNode.value === null) continue;
                 if(!currentNode.connectedToRequiredChars(this.requiredGraph.get(currentNode.value))){
                     return false;
@@ -147,14 +146,6 @@ export default class Solver {
             }
         }
         return true;
-    }
-
-    copySolutionArray() {
-        let copy = [];
-        for(let row = 0; row < 5; row++){
-            copy.push([...this.solution[row]]);
-        }
-        return copy;
     }
 
     extractSolution() {

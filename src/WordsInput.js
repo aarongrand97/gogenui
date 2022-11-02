@@ -28,7 +28,6 @@ const WordsInput = (props) => {
     }
 
     return (
-        //<input type="text" value={currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
         <div className='wordsInput'>
             <TextField size="small" id="wordInput" label="Enter word" variant="outlined" value= {currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
 
@@ -43,7 +42,3 @@ const WordsInput = (props) => {
 }
 
 export default WordsInput;
-
-/*  {Array.from(props.wordsList).map(word => (
-                <WordDisplay value={word} removeWord={removeWord}/>
-            ))} */
