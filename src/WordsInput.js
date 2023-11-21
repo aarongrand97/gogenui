@@ -23,17 +23,23 @@ const WordsInput = (props) => {
     }
 
     const handleSubmit = () => {
-        props.onAddWord(currentInputtedWord);
+        if(currentInputtedWord.includes(' ')){
+            var eachWord = currentInputtedWord.split(' ');
+            props.onAddWord(eachWord);
+        }
+        else {
+            props.onAddWord([currentInputtedWord]);
+        }
         setCurrentInputtedWord("");
     }
 
     return (
         <div className='wordsInput'>
-            <TextField size="small" id="wordInput" label="Enter word" variant="outlined" value= {currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
+            <TextField size="small" id="wordInput" label="Enter word(s)" variant="outlined" value= {currentInputtedWord} onChange={handleChange} onKeyDown={handleKeyDown}/>
 
             <List sx={{ width: '100%', maxWidth: 360, maxHeight: 300, overflow: 'auto', bgcolor: 'background.paper' }}>
             {Array.from(props.wordsList).map((word) => (
-                <WordDisplay value={word} removeWord={removeWord}/>
+                <WordDisplay key={word} value={word} removeWord={removeWord}/>
             ))}
             </List>
            

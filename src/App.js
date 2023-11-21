@@ -20,11 +20,17 @@ function App() {
   const [grid, setGrid] = useState(initialGrid);
   const [showSolution, setShowSolution] = useState(false);
 
-  const addToWordsList = (word) => {
-    setWordsList(new Set(wordsList).add(word));
+  const addToWordsList = (wordSet) => {
+    var tempSet = new Set(wordsList);
+    for(const word of wordSet) {
+      tempSet.add(word.toLowerCase());
+    }
+    console.log("setting words list to " + tempSet);
+    setWordsList(new Set(tempSet));
   }
 
   const removeFromWordsList = (word) => {
+    console.log("removing from words list " + word);
     wordsList.delete(word);
     let newWordsList = new Set(wordsList);
     setWordsList(newWordsList)
@@ -72,7 +78,7 @@ function App() {
   return (
     <>    
     <div className="App">
-      <h1>GOGEN SOLVER</h1>
+      <h1>GOGEN SOLVER 2</h1>
       <Grid grid = {grid} updateGrid = {(index, value) => updateGrid(index, value)} showSolution = {showSolution}/>
       <WordsInput wordsList = {wordsList} onAddWord = {(word) => addToWordsList(word)} onRemoveWord = {(word) => removeFromWordsList(word)}/>
       <div>

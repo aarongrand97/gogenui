@@ -9,7 +9,7 @@ const WordDisplay = (props) => {
     }
 
     return (<div className="wordDisplay">
-    <text>{props.value}</text>
+    <span>{props.value}</span>
     <Button onClick={() => removeClicked(props.value)}>clear</Button>
     </div>)
 }
